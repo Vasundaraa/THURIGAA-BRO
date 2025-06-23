@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fdf6f6;
+            height: auto;
+            overflow: auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        #dateForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #dateInput,
+        #submitButton {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #dateInput {
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        #submitButton {
+            background-color: #d63384;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        #submitButton:hover {
+            background-color: #b91c54;
+        }
+
+        #message {
+            display: none;
+            background: #ffebf0;
+            color: #d63384;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+            margin-top: 30px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #message.show {
+            opacity: 1;
+            transform: scale(1);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px #ff6ea5;
+            }
+
+            100% {
+                box-shadow: 0 0 20px #ff3d85;
+            }
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: fly 3s linear infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(calc(-50vw + 100vw * random()));
+                opacity: 0;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(8);
+                opacity: 0;
+            }
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photo-gallery img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .photo-gallery img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            #message {
+                font-size: 16px;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="dateForm">
+            <label for="dateInput">Enter a date:</label>
+            <input type="date" id="dateInput" required>
+            <button type="submit" id="submitButton">Submit</button>
+        </form>
+
+        <div id="message">
+            <p>“To the Don Who Smiles Through It All”<br><br>
+
+                We met one day, I don’t recall the time,
+                But fate had a plan — it started a rhyme.
+                A trip, a charger, a scared little glance,
+                And from that moment, began our dance.<br><br>
+
+                They say you're younger — that may be true,
+                But in your presence, strength shines through.
+                Standing tall, like you’ve always been,
+                The elder soul in a younger skin.<br><br>
+
+                With silence you carry what others might break,
+                You hide your storms for your loved ones’ sake.
+                Behind your smile, there’s a world unknown,
+                But never once have you stood alone.<br><br>
+
+                To my dad, you're his "Don", his pride,
+                To my mom, you're joy she can’t hide.
+                You walk into the room — their faces glow,
+                That kind of love, only few will know.<br><br>
+
+                Girls may chase the one on court,
+                A heartthrob in school — the silent sport.
+                But deeper still, in your quiet way,
+                You build your world, come what may.<br><br>
+
+                Now college awaits — PSG’s own star,
+                With IT dreams, you'll go so far.
+                And as you turn your bright eighteen,
+                Know you’re stronger than you've ever seen.<br><br>
+
+                I’ve not said this — not like today,
+                But there’s so much I wish to say.
+                Through all your highs and silent lows,
+                You’ve been a quiet hero, every single day.<br><br>
+
+                Your dad — your strength, your guiding flame,
+                And through him, we all feel the same.
+                You’re more than a friend, you're family too,
+                And everything good, I wish for you.<br><br>
+
+                When burdens rise or shadows stay long,
+                Your mama and athai will help you stay strong.
+                With open arms, they’ll always defend,
+                Not just in laughter — but till every end.<br><br>
+
+                So here’s to Rosh — the handsome Don,
+                Who’s lit with fire and keeps marching on.
+                May your smile never fade, your spirit never fall,
+                You are loved, so deeply, by one and all.<br><br>
+
+                Happy 18th, Rosh. Shine on.
+                With all my heart,<br><br>
+                Tareee!!!!</p>
+            <div class="photo-gallery">
+                <img src="C:\Users\Vasundaraa\Pictures\Photobooth\WhatsApp Image 2025-06-22 at 22.04.38_b4e3ba17.jpg" alt="Memory 1">
+                <img src="C:\Users\Vasundaraa\Pictures\Photobooth\WhatsApp Image 2025-06-22 at 22.04.38_0586c356.jpg" alt="Memory 2">
+                <img src="C:\Users\Vasundaraa\Pictures\Photobooth\WhatsApp Image 2025-06-22 at 22.04.37_b337abf2.jpg" alt="Memory 3">
+                <img src="C:\Users\Vasundaraa\Pictures\Photobooth\WhatsApp Image 2025-06-22 at 22.04.37_5eb8b767.jpg" alt="Memory 4">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("dateForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let selectedDate = document.getElementById("dateInput").value;
+            if (selectedDate) {
+                let dateObj = new Date(selectedDate);
+                let day = dateObj.getDate();
+                let month = dateObj.getMonth() + 1;
+                let year = dateObj.getFullYear();
+
+                if (day === 25 && month === 6 && year === 2007) {
+                    let messageDiv = document.getElementById("message");
+                    messageDiv.style.display = "block";
+                    setTimeout(() => messageDiv.classList.add("show"), 100);
+                    document.getElementById("dateForm").style.display = "none";
+
+                    createEmojis();
+                    createFireworks();
+                } else {
+                    alert("Wrong date! Try again.");
+                }
+            } else {
+                alert("Please select a date.");
+            }
+        });
+
+        function createEmojis() {
+            let emojis = ["🎉", "🎊", "💖", "✨", "🎶", "💃"];
+            for (let i = 0; i < 20; i++) {
+                let emoji = document.createElement("div");
+                emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.classList.add("emoji");
+
+                let startX = Math.random() * window.innerWidth;
+                let duration = Math.random() * 3 + 2;
+
+                emoji.style.left = `${startX}px`;
+                emoji.style.animationDuration = `${duration}s`;
+
+                document.body.appendChild(emoji);
+                setTimeout(() => { emoji.remove(); }, duration * 1000);
+            }
+        }
+
+        function createFireworks() {
+            for (let i = 0; i < 5; i++) {
+                let firework = document.createElement("div");
+                firework.classList.add("firework");
+
+                let posX = Math.random() * window.innerWidth;
+                let posY = Math.random() * window.innerHeight * 0.5;
+
+                firework.style.left = `${posX}px`;
+                firework.style.top = `${posY}px`;
+
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1000);
+            }
+            setTimeout(createFireworks, 2000);
+        }
+    </script>
+</body>
+
+</html>
